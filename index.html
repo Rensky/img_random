@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<title>ImgRandom</title>
+</head>
+<body>
+
+	
+	<div class="container">
+		<div id="left_div" class="random-left"></div>
+		<div id="right_div" class="random-right"></div>
+	</div>
+
+	<script>
+
+		$(document).ready(function(){
+
+			var flag = 0;
+			var color = ['red','blue','green','yellow','white','pink'];
+			var result_img;
+			var i = 1;
+
+			$("#left_div").css({
+				'background-color' : 'white',
+			});
+
+			$("#right_div").css({
+				'background-color' : 'white'
+			});
+
+
+			$(".container").click(function(){
+
+
+				if(flag == 0){
+
+					console.log('start');
+					var random_start = setInterval(function(){ 
+
+						flag = 1;
+						$("#left_div").css({
+							'background-color': color[getRandom(0,6)]
+						});
+						$("#right_div").css({
+							'background-color': color[getRandom(0,6)]
+						});
+
+						
+
+					 }, 100);
+
+					$(this).click(function(){
+
+						clearInterval(random_start);
+						
+						result_img = getRandom(0,6);
+
+						$("#left_div").css({
+							'background-color': color[result_img]
+						});
+						$("#right_div").css({
+							'background-color': color[result_img]
+						});
+
+						flag = 0;
+
+					});
+					
+				}	
+
+			});
+
+		});
+
+		// 隨機涵式
+		function getRandom(min, max) {
+		    return Math.floor(Math.random() * (max - min) + min);
+		}
+
+	</script>
+</body>
+</html>

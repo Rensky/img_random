@@ -1,0 +1,31 @@
+@import url(https://reset5.googlecode.com/hg/reset.min.css);
+
+body{
+	background-color: #000;
+}
+
+.container{
+	width: 182px;
+	height: 182px;
+	margin: 60px auto 0 auto;
+	cursor: pointer;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.container .random-left,
+.container .random-right{
+	float: left;
+	width: 50%;
+	height: 180px;
+}
+
+.container .random-left{
+	background: url(../li2.png) no-repeat;
+	background-position-x: 0px;
+}
+
+.container .random-right{
+	background: url(../li2.png) no-repeat;
+	background-position-x: -91px;
+}
